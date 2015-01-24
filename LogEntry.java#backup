@@ -1,0 +1,187 @@
+import java.util.StringTokenizer;
+
+/**
+ * Creates a log entry displaying the date. 
+ * 
+ * @author Neal Sun
+ * @version 1.0 2013-10-07
+ */
+public class LogEntry
+{
+    // instance fields
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+
+    // constructors
+    /**
+     * Constructs a log entry.
+     * 
+     * @param logEntry - a single string containing all of the data
+     * for a log entry
+     */
+    public LogEntry(String logEntry)
+    {
+        // Convert string logEntry into 5 integers. 
+        StringTokenizer tokens = new StringTokenizer(logEntry);
+
+        this.year = Integer.parseInt(tokens.nextToken());
+        this.month = Integer.parseInt(tokens.nextToken());
+        this.day = Integer.parseInt(tokens.nextToken());
+        this.hour = Integer.parseInt(tokens.nextToken());
+        this.minute = Integer.parseInt(tokens.nextToken());
+    } // end of LogEntry(string LogEntry)
+
+    /**
+     * Constructs a log entry.
+     * 
+     * @param year - the year of this log entry
+     * @param month - the month of this log entry
+     * @param day - the day of this log entry
+     * @param hour - the hour of this log entry
+     * @param minute - the minute of this log entry
+     */
+    public LogEntry(int year, int month, int day, int hour, int minute)
+    {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        this.hour = hour;
+        this.minute = minute;
+    } // end of LogEntry(int year, int month, int day, int hour, int minute)
+
+    /**
+     * Compares this log entry with another one. 
+     * 
+     * @param anotherLogEntry - another log entry to compare with
+     * @return value 0 if two log entries are same, 
+     *  1 if this log entry goes first, 
+     *  -1 if this log entry goes later
+     */
+    public int compareTo(LogEntry anotherLogEntry)
+    {
+        return toString().compareTo(anotherLogEntry.toString());
+        
+        //         StringTokenizer tokens = new StringTokenizer(anotherLogEntry.toString());
+//         
+//         int[] anotherLogEntryData = new int[3];
+//         for (int i = 0; i < anotherLogEntryData.length; i++)
+//         {
+//             String temporaryToken = tokens.nextToken();
+//             anotherLogEntryData[i] = Integer.parseInt(tokens.nextToken());
+//         } // end of for (int i = 0;
+//         
+//         if (this.year != anotherLogEntryData[0]) return this.year - anotherLogEntryData[0];
+//         
+//         if (this.month != anotherLogEntryData[1]) return this.month - anotherLogEntryData[1];
+//         
+//         if (this.day != anotherLogEntryData[2]) return this.day - anotherLogEntryData[2];
+//         
+//         if (this.getHour() != anotherLogEntry.getHour()) return this.getHour() - anotherLogEntry.getHour();
+//         
+//         return this.getMinute() - anotherLogEntry.getMinute();
+
+
+//         
+//         
+//         if ((this.getYear() > logEntry.getYear()) || 
+//         (this.getYear() == logEntry.getYear() && 
+//             this.getMonth() > logEntry.getMonth()) ||
+//         (this.getYear() == logEntry.getYear() && 
+//             this.getMonth() == logEntry.getMonth() &&
+//             this.getDay() > logEntry.getDay()) ||
+//         (this.getYear() == logEntry.getYear() && 
+//             this.getMonth() == logEntry.getMonth() &&
+//             this.getDay() == logEntry.getDay() &&
+//             this.getHour() > logEntry.getHour()) ||
+//         (this.getYear() == logEntry.getYear() && 
+//             this.getMonth() == logEntry.getMonth() &&
+//             this.getDay() == logEntry.getDay() &&
+//             this.getHour() == logEntry.getHour() &&
+//             this.getMinute() > logEntry.getMinute()))
+//         {
+//             return 1;
+//         }
+//         else if (this.getYear() == logEntry.getYear() && 
+//         this.getMonth() == logEntry.getMonth() &&
+//         this.getDay() == logEntry.getDay() &&
+//         this.getHour() == logEntry.getHour() &&
+//         this.getMinute() == logEntry.getMinute())
+//         {
+//             return 0;
+//         }
+//         else
+//         {
+//             return -1;
+//         } // end of if ((this.getYear()...
+    } // end of method compareTo(LogEntry logEntry)
+
+    /**
+     * Returns the year of the log entry 
+     * 
+     * @return the year of this log entry 
+     */
+    public int getYear()
+    {
+        return year;
+    } // end of method getYear()
+
+    /**
+     * Returns the month of the log entry 
+     * 
+     * @return the month of this log entry 
+     */
+    public int getMonth()
+    {
+        return month;
+    } // end of method getMonth()
+
+    /**
+     * Returns the day of the log entry 
+     * 
+     * @return the day of this log entry 
+     */
+    public int getDay()
+    {
+        return day;
+    } // end of method getDay()
+
+    /**
+     * Returns the hour of the log entry 
+     * 
+     * @return the hour of this log entry 
+     */
+    public int getHour()
+    {
+        return hour;
+    } // end of method getHour()
+
+    /**
+     * Returns the minute of the log entry 
+     * 
+     * @return the minute of this log entry 
+     */
+    public int getMinute()
+    {
+        return minute;
+    } // end of method getMinute()
+
+    /**
+     * Creates a string representation of this <code>LogEntry</code>. 
+     * 
+     * @return a string representing this <code>LogEntry</code>
+     */
+    public String toString()
+    {
+        return getClass().getName()
+        + "["
+        + "Year: " + year
+        + " Month: " + month
+        + " Day: " + day
+        + " Hour: " + hour
+        + " Minute: " + minute
+        + " ]";
+    } // end of method toString()
+} // end of class LogEntry
